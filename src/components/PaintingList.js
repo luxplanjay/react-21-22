@@ -1,4 +1,4 @@
-import Painting from './Painting';
+import Painting from './Painting/Painting';
 import PropTypes from 'prop-types';
 
 function PaintingList({ items }) {
