@@ -5,7 +5,7 @@ const Painting = ({
   imageUrl = defaultImage,
   title,
   profileUrl,
-  author = 'не известно',
+  author,
   price,
   quantity,
 }) => {

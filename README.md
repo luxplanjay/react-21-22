@@ -1,60 +1,37 @@
 # react-21-22
 
-- Зачем нужны JS-фреймворки?
-- [Концепция Virtual DOM](https://illustrated.dev/react-vdom)
-- [create-react-app](https://create-react-app.dev/)
-  - webpack
-  - babel
-  - eslint
-  - react
-  - react-dom
-- React-элементы и `React.createElement()`
-  - Тип элемента
-  - Пропсы
-  - children
-- JSX как шаблонизатор
-  - [Новый трансформ](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
-  - Выражения в JSX.
-  - Рендер по условию с `&&` и `?`
-- Компоненты-функции
-  - Имя маленькой в JSX - строка, с большой - имя переменной.
-- Передача данных через Props
-  - Значения пропсов по умолчанию
-  - Дефолтные локальные изображения.
-- [Инструменты разработчика - React DevTools](http://fecore.net.ua/books/rq7s2k-react/lesson-01/#react-devtools)
-- [Пакет prop-types](https://www.npmjs.com/package/prop-types)
-- Свойство `propTypes`
-- Работа с коллекциями, ключи
-- Основы композиции компонентов, потомки (props.children). Делаем панель.
-- [Строгий режим](https://ru.reactjs.org/docs/strict-mode.html)
+- [Настраиваем линтинг перед коммитом](https://github.com/goitacademy/react-lint-config)
+- [Нормализация](https://github.com/sindresorhus/modern-normalize)
+- Распыление пропсов на примере `PaintingList` и `Painting`
+- Ванильный CSS и препроцессоры
+- Инлайн стили
+- CSS-модули
+  - Композиция с `composes`
+  - Переменные
+- CSS in JS
+- Про библиотеки компонентов
 
-## Компонент `Painting`
+## Компонент ColorPicker
 
 ```html
-<div>
-  <img src="" alt="" width="480" />
-  <h2></h2>
-  <p>Автор: <a href=""></a></p>
-  <p>Цена: кредитов</p>
-  <p>Доступность: заканчивается или есть в наличии}</p>
-  <button type="button">Добавить в корзину</button>
+<div class="ColorPicker">
+  <h2 class="ColorPicker__title">Color Picker</h2>
+  <div>
+    <span class="ColorPicker__option"></span>
+  </div>
 </div>
 ```
 
-## Компонент `PaintingList`
+## Компонент Container
 
 ```html
-<ul>
-  <li>Painting</li>
-  ...
-</ul>
+<div class="Container">Дети</div>
 ```
 
-## Компонент `Section`
+## Компонент Alert
+
+Свойство `type` может быть только `success`, `warning` или `error`.
 
 ```html
-<div style="outline: 1px solid tomato;">
-  <h2></h2>
-  Контент
-</div>
+<p role="alert" class="Alert">текст</p>
 ```
