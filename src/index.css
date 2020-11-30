@@ -17,13 +17,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-.box.big {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 100px;
-}
-
-.box.red {
-  background-color: teal;
-}
