@@ -1,26 +1,24 @@
 import { Component } from 'react';
-// import MyForm from './components/MyForm';
-import authContext from './context/auth-context';
-import AppBar from './components/AppBar';
-import avatar from './avatar.png';
-
-console.log(authContext);
+import { ToastContainer } from 'react-toastify';
+import PokemonForm from './components/PokemonForm';
+import PokemonInfo from './components/PokemonInfo';
 
 export default class App extends Component {
   state = {
-    isLoggedIn: false,
-    user: { name: 'Манго', avatar },
-    onLogIn: () => this.setState({ isLoggedIn: true }),
-    onLogOut: () => this.setState({ isLoggedIn: false }),
+    pokemonName: '',
+  };
+
+  onFormSubmit = pokemonName => {
+    this.setState({ pokemonName });
   };
 
   render() {
     return (
-      <authContext.Provider value={this.state}>
-        <div>
-          <AppBar />
-        </div>
-      </authContext.Provider>
+      <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
+        <PokemonForm onSubmit={this.onFormSubmit} />
+        <PokemonInfo pokemonName={this.state.pokemonName} />
+        <ToastContainer autoClose={3000} />
+      </div>
     );
   }
 }
