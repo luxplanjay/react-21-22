@@ -26,15 +26,6 @@ button {
   animation: icon-spin 2s infinite linear;
 }
 
-@-webkit-keyframes icon-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
 @keyframes icon-spin {
   0% {
     transform: rotate(0deg);

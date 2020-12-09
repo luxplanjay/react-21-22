@@ -1,10 +1,10 @@
 import errorImage from './error.jpg';
 
-export default function PokemonFallbackView({ message }) {
+export default function PokemonErrorView({ message }) {
   return (
     <div role="alert">
       <img src={errorImage} width="240" alt="sadcat" />
-      {message}
+      <p>{message}</p>
     </div>
   );
 }

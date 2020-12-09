@@ -8,14 +8,14 @@ export default class App extends Component {
     pokemonName: '',
   };
 
-  onFormSubmit = pokemonName => {
+  handleFormSubmit = pokemonName => {
     this.setState({ pokemonName });
   };
 
   render() {
     return (
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
-        <PokemonForm onSubmit={this.onFormSubmit} />
+        <PokemonForm onSubmit={this.handleFormSubmit} />
         <PokemonInfo pokemonName={this.state.pokemonName} />
         <ToastContainer autoClose={3000} />
       </div>
