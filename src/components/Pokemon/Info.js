@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import PokemonDataView from './PokemonDataView';
-import PokemonErrorView from './PokemonErrorView';
-import PokemonPendingView from './PokemonPendingView';
-import pokemonAPI from '../services/pokemon-api';
+import PokemonDataView from './DataView';
+import PokemonErrorView from './ErrorView';
+import PokemonPendingView from './PendingView';
+import pokemonAPI from '../../services/pokemon-api';
 
 const Status = {
   IDLE: 'idle',
@@ -25,12 +25,10 @@ export default class PokemonInfo extends Component {
     if (prevName !== nextName) {
       this.setState({ status: Status.PENDING });
 
-      setTimeout(() => {
-        pokemonAPI
-          .fetchPokemon(nextName)
-          .then(pokemon => this.setState({ pokemon, status: Status.RESOLVED }))
-          .catch(error => this.setState({ error, status: Status.REJECTED }));
-      }, 3000);
+      pokemonAPI
+        .fetchPokemon(nextName)
+        .then(pokemon => this.setState({ pokemon, status: Status.RESOLVED }))
+        .catch(error => this.setState({ error, status: Status.REJECTED }));
     }
   }
 
