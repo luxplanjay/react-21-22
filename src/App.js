@@ -1,19 +1,9 @@
 import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar/AppBar';
-import SignupForm from './components/SignupForm/SignupForm';
-import ColorPicker from './components/ColorPicker/ColorPicker';
+import SkipEffectOnFirstRender from './components/SkipEffectOnFirstRender';
 import Counter from './components/Counter/Counter';
-import Clock from './components/Clock/Clock';
 import PokemonView from './views/PokemonView';
-
-const colorPickerOptions = [
-  { label: 'red', color: '#F44336' },
-  { label: 'green', color: '#4CAF50' },
-  { label: 'blue', color: '#2196F3' },
-  { label: 'grey', color: '#607D8B' },
-  { label: 'pink', color: '#E91E63' },
-  { label: 'indigo', color: '#3F51B5' },
-];
+import Friends from './components/Friends';
 
 const containerStyles = {
   maxWidth: 1170,
@@ -29,24 +19,20 @@ export default function App() {
       <AppBar />
 
       <Switch>
-        <Route path="/signup">
-          <SignupForm />
+        <Route path="/skip-first-render">
+          <SkipEffectOnFirstRender />
         </Route>
 
-        <Route path="/colorpicker">
-          <ColorPicker options={colorPickerOptions} />
+        <Route path="/pokemon">
+          <PokemonView />
         </Route>
 
         <Route path="/counter">
           <Counter />
         </Route>
 
-        <Route path="/clock">
-          <Clock />
-        </Route>
-
-        <Route path="/pokemon">
-          <PokemonView />
+        <Route path="/notes">
+          <Friends />
         </Route>
       </Switch>
     </div>

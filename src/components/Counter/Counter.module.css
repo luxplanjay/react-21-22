@@ -1,6 +1,16 @@
+.container {
+  text-align: center;
+}
+
 .btn {
   display: inline-flex;
   font-size: 20px;
-  margin: 4px;
+  margin: 6px;
   cursor: pointer;
+}
+
+.value {
+  margin: 0;
+  font-size: 64px;
+  font-family: monospace;
 }

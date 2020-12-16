@@ -1,39 +1,15 @@
-import React from 'react';
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
 const Navigation = () => (
   <nav>
     <NavLink
-      to="/signup"
+      to="/skip-first-render"
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Форма
-    </NavLink>
-
-    <NavLink
-      to="/colorpicker"
-      className={styles.link}
-      activeClassName={styles.activeLink}
-    >
-      Колорпикер
-    </NavLink>
-
-    <NavLink
-      to="/counter"
-      className={styles.link}
-      activeClassName={styles.activeLink}
-    >
-      Счётчик
-    </NavLink>
-
-    <NavLink
-      to="/clock"
-      className={styles.link}
-      activeClassName={styles.activeLink}
-    >
-      Часы
+      Пропуск первого рендера
     </NavLink>
 
     <NavLink
@@ -41,9 +17,25 @@ const Navigation = () => (
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Покемоны
+      Покемоны с хуками
+    </NavLink>
+
+    <NavLink
+      to="/counter"
+      className={styles.link}
+      activeClassName={styles.activeLink}
+    >
+      useReducer
+    </NavLink>
+
+    <NavLink
+      to="/notes"
+      className={styles.link}
+      activeClassName={styles.activeLink}
+    >
+      useMemo
     </NavLink>
   </nav>
 );
 
-export default Navigation;
+export default memo(Navigation);
