@@ -1,41 +1,33 @@
-import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
 const Navigation = () => (
   <nav>
     <NavLink
-      to="/skip-first-render"
+      exact
+      to="/"
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Пропуск первого рендера
+      Главная
     </NavLink>
 
     <NavLink
-      to="/pokemon"
+      to="/authors"
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Покемоны с хуками
+      Авторы
     </NavLink>
 
     <NavLink
-      to="/counter"
+      to="/books"
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      useReducer
-    </NavLink>
-
-    <NavLink
-      to="/notes"
-      className={styles.link}
-      activeClassName={styles.activeLink}
-    >
-      useMemo
+      Книги
     </NavLink>
   </nav>
 );
 
-export default memo(Navigation);
+export default Navigation;

@@ -1,40 +1,38 @@
 import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar/AppBar';
-import SkipEffectOnFirstRender from './components/SkipEffectOnFirstRender';
-import Counter from './components/Counter/Counter';
-import PokemonView from './views/PokemonView';
-import Friends from './components/Friends';
-
-const containerStyles = {
-  maxWidth: 1170,
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  paddingLeft: 15,
-  paddingRight: 15,
-};
+import Container from './components/Container/Container';
+import HomeView from './views/HomeView';
+import AuthorsView from './views/AuthorsView';
+import BooksView from './views/BooksView';
+import BookDetailsView from './views/BookDetailsView';
+import NotFoundView from './views/NotFoundView';
 
 export default function App() {
   return (
-    <div style={containerStyles}>
+    <Container>
       <AppBar />
 
       <Switch>
-        <Route path="/skip-first-render">
-          <SkipEffectOnFirstRender />
+        <Route path="/" exact>
+          <HomeView />
         </Route>
 
-        <Route path="/pokemon">
-          <PokemonView />
+        <Route path="/authors">
+          <AuthorsView />
         </Route>
 
-        <Route path="/counter">
-          <Counter />
+        <Route path="/books" exact>
+          <BooksView />
         </Route>
 
-        <Route path="/notes">
-          <Friends />
+        <Route path="/books/:bookId">
+          <BookDetailsView />
+        </Route>
+
+        <Route>
+          <NotFoundView />
         </Route>
       </Switch>
-    </div>
+    </Container>
   );
 }
