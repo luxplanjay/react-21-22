@@ -1,7 +1,8 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function AuthorSubView({ authors }) {
+  const location = useLocation();
   const { authorId } = useParams();
   const author = authors.find(author => author.id === Number(authorId));
 
@@ -12,7 +13,19 @@ export default function AuthorSubView({ authors }) {
       <ul>
         {author.books.map(book => (
           <li key={book.id}>
-            <Link to={`/books/${book.id}`}>{book.title}</Link>
+            <Link
+              to={{
+                pathname: `/books/${book.id}`,
+                state: {
+                  from: {
+                    location,
+                    label: 'Назад к автору',
+                  },
+                },
+              }}
+            >
+              {book.title}
+            </Link>
           </li>
         ))}
       </ul>

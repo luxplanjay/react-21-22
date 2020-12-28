@@ -1,15 +1,13 @@
 # react-21-22
 
-- Параметры адресной строки c useLocation
-- Программная навигация с useHistory
-- Повторное использование кода
-- Разделение кода
-  - Вкладка Coverage
-  - Динамический импорт модулей
-    - React.lazy()
-    - Webpack magic comments `import('путь' /* webpackChunkName: "имя" */)`
-    - React.Suspense и fallback
+- [Свойство location.state](https://reactrouter.com/web/api/Link)
+- Слаги
+  - https://dev.to/fayazara/this-free-tools-for-developers-are-45p3
+  - [slugify](https://www.npmjs.com/package/slugify)
+  - [regexp101](https://regex101.com/)
 
-## Допмат
+## На каникулы
 
-- [Предварительная загрузка ссылок](https://web.dev/quicklink/)
+- [React Query](https://react-query.tanstack.com/)
+  - Ищите туториалы по react query v3
+- [React Hook Form](https://react-hook-form.com/)

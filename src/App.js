@@ -2,12 +2,6 @@ import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar/AppBar';
 import Container from './components/Container/Container';
-// import HomeView from './views/HomeView';
-// import AuthorsView from './views/AuthorsView';
-// import BooksView from './views/BooksView';
-// import BookDetailsView from './views/BookDetailsView';
-// import NotFoundView from './views/NotFoundView';
-// import TableView from './views/TableView';
 
 const HomeView = lazy(() =>
   import('./views/HomeView.js' /* webpackChunkName: "home-view" */),
@@ -15,10 +9,15 @@ const HomeView = lazy(() =>
 const AuthorsView = lazy(() =>
   import('./views/AuthorsView.js' /* webpackChunkName: "authors-view" */),
 );
-const BooksView = lazy(() => import('./views/BooksView.js'));
-const BookDetailsView = lazy(() => import('./views/BookDetailsView.js'));
-const NotFoundView = lazy(() => import('./views/NotFoundView.js'));
-const TableView = lazy(() => import('./views/TableView.js'));
+const BooksView = lazy(() =>
+  import('./views/BooksView.js' /* webpackChunkName: "books-view" */),
+);
+const BookDetailsView = lazy(() =>
+  import('./views/BookDetailsView.js' /* webpackChunkName: "book-view" */),
+);
+const NotFoundView = lazy(() =>
+  import('./views/NotFoundView.js' /* webpackChunkName: "404-view" */),
+);
 
 export default function App() {
   return (
@@ -39,12 +38,8 @@ export default function App() {
             <BooksView />
           </Route>
 
-          <Route path="/books/:bookId">
+          <Route path="/books/:slug">
             <BookDetailsView />
-          </Route>
-
-          <Route path="/table">
-            <TableView />
           </Route>
 
           <Route>

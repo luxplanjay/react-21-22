@@ -16,6 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-toastify": "^6.2.0",
+    "slugify": "^1.4.6",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.0"
   },
