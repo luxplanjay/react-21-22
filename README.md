@@ -1,13 +1,46 @@
 # react-21-22
 
-- [Свойство location.state](https://reactrouter.com/web/api/Link)
-- Слаги
-  - https://dev.to/fayazara/this-free-tools-for-developers-are-45p3
-  - [slugify](https://www.npmjs.com/package/slugify)
-  - [regexp101](https://regex101.com/)
+## Контекст + Хуки
 
-## На каникулы
+✅ Плюсы:
 
-- [React Query](https://react-query.tanstack.com/)
-  - Ищите туториалы по react query v3
-- [React Hook Form](https://react-hook-form.com/)
+- Простая реализация.
+- Состояние хранится в пределах компонентов, в которых оно используется.
+- Не требуется никаких дополнительных зависимостей.
+
+❌ Минусы:
+
+- Быстро становится беспорядочным.
+- Сложно отслеживать место хранения состояния из разных уровней.
+- Нужно писать все с нуля, то есть много «лишнего» кода.
+
+## Библиотеки управления состоянием
+
+- https://redux-toolkit.js.org
+- https://mobx.js.org
+- https://www.apollographql.com/docs/react
+- https://recoiljs.org
+- https://hookstate.js.org
+
+✅ Плюсы:
+
+- Стандартные архитектурные шаблоны.
+- Удобные инструменты для отладки кода.
+- Простая расширяемость.
+- Готовые решения, например для кеширования серверных данных.
+- Кросс-платформенное использование.
+- Производительность может быть выше.
+- Один глобальный экземпляр данных.
+- Middleware (прослойки).
+
+❌ Минусы:
+
+- Новая концепция.
+- Новый синтаксис.
+- Обновления.
+- Исправление ошибок.
+
+### Redux
+
+- [Global React Meetup: "State of Redux" featuring Mark Erikson](https://youtu.be/kUVyE7XuiV4)
+- [Слайды](https://blog.isquaredsoftware.com/presentations/react-redux-ts-intro-2020-12/#/52)
