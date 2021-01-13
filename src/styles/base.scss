@@ -1,0 +1,28 @@
+@import 'styles/shared';
+
+body {
+  margin: 0;
+  background-color: $white;
+  color: $black;
+  line-height: 1.5;
+  font-family: $primary-font-stack;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
