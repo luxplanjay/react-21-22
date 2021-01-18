@@ -13,13 +13,13 @@ export default function Navigation() {
         Главная
       </NavLink>
 
-      <NavLink
+      {/* <NavLink
         to="/authors"
         className={styles.link}
         activeClassName={styles.activeLink}
       >
         Авторы
-      </NavLink>
+      </NavLink> */}
 
       <NavLink
         to="/books"

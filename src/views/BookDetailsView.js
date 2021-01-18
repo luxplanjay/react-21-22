@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation, useHistory, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import PageHeading from '../components/PageHeading/PageHeading';
 import * as bookShelfAPI from '../services/bookshelf-api';
 
 export default function BookDetailsView() {
-  const history = useHistory();
   const location = useLocation();
   const { slug } = useParams();
   const bookId = slug.match(/[a-z0-9]+$/)[0];
@@ -14,20 +13,12 @@ export default function BookDetailsView() {
     bookShelfAPI.fetchBookById(bookId).then(setBook);
   }, [bookId]);
 
-  // const onGoBack = () => {
-  //   history.push(location?.state?.from?.location ?? '/books');
-  // };
-
   return (
     <>
       <PageHeading text={`Книга ${slug}`} />
 
       {book && (
         <>
-          {/* <button type="button" onClick={onGoBack}>
-            {location?.state?.from?.label ?? 'Назад'}
-          </button> */}
-
           <Link to={location?.state?.from?.location ?? '/books'}>
             {location?.state?.from?.label ?? 'Назад'}
           </Link>
