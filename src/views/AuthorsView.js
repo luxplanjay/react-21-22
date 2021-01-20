@@ -1,8 +1,8 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { NavLink, Route, useRouteMatch } from 'react-router-dom';
-import * as bookShelfAPI from '../services/bookshelf-api';
+import { useSelector, useDispatch } from 'react-redux';
+import { authorsOperations, authorsSelectors } from '../redux/authors';
 import PageHeading from '../components/PageHeading/PageHeading';
-// import AuthorSubView from './AuthorSubView';
 
 const AuthorSubView = lazy(() =>
   import('./AuthorSubView.js' /* webpackChunkName: "authors-subview"*/),
@@ -10,11 +10,12 @@ const AuthorSubView = lazy(() =>
 
 export default function AuthorsView() {
   const { url, path } = useRouteMatch();
-  const [authors, setAuthors] = useState(null);
+  const dispatch = useDispatch();
+  const authors = useSelector(authorsSelectors.getAuthors);
 
   useEffect(() => {
-    bookShelfAPI.fetchAuthors().then(setAuthors);
-  }, []);
+    dispatch(authorsOperations.fetchAuthors());
+  }, [dispatch]);
 
   return (
     <>

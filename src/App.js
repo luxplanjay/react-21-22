@@ -6,9 +6,9 @@ import Container from './components/Container/Container';
 const HomeView = lazy(() =>
   import('./views/HomeView.js' /* webpackChunkName: "home-view" */),
 );
-// const AuthorsView = lazy(() =>
-//   import('./views/AuthorsView.js' /* webpackChunkName: "authors-view" */),
-// );
+const AuthorsView = lazy(() =>
+  import('./views/AuthorsView.js' /* webpackChunkName: "authors-view" */),
+);
 const BooksView = lazy(() =>
   import('./views/BooksView.js' /* webpackChunkName: "books-view" */),
 );
@@ -30,9 +30,9 @@ export default function App() {
             <HomeView />
           </Route>
 
-          {/* <Route path="/authors">
+          <Route path="/authors">
             <AuthorsView />
-          </Route> */}
+          </Route>
 
           <Route path="/books" exact>
             <BooksView />

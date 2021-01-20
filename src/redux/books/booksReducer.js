@@ -1,4 +1,4 @@
-import { createReducer, combineReducers, createSlice } from '@reduxjs/toolkit';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import { fetchBooks } from './booksOperations';
 
 const entities = createReducer([], {
@@ -21,15 +21,3 @@ export default combineReducers({
   isLoading,
   error,
 });
-
-// 🔥 ИСПОЛЬЗУЕТ IMMER ДЛЯ МУТАЦИИ КОПИИ СОСТОЯНИЯ
-// const booksSlice = createSlice({
-//   name: 'books',
-//   initialState: { entities: [], isLoading: false, error: null },
-//   extraReducers: {
-//     [fetchBooks.fulfilled]: (state, { payload }) => (state.entities = payload),
-//     [fetchBooks.pending]: state => (state.isLoading = true),
-//   },
-// });
-
-// export default booksSlice.reducer;
