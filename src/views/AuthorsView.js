@@ -1,7 +1,8 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { NavLink, Route, useRouteMatch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { authorsOperations, authorsSelectors } from '../redux/authors';
+import { authorsOperations } from '../redux/authors';
+import { authorsSelectors } from '../redux/authors/authorsSlice';
 import PageHeading from '../components/PageHeading/PageHeading';
 
 const AuthorSubView = lazy(() =>
@@ -11,7 +12,7 @@ const AuthorSubView = lazy(() =>
 export default function AuthorsView() {
   const { url, path } = useRouteMatch();
   const dispatch = useDispatch();
-  const authors = useSelector(authorsSelectors.getAuthors);
+  const authors = useSelector(authorsSelectors.selectAll);
 
   useEffect(() => {
     dispatch(authorsOperations.fetchAuthors());
@@ -34,7 +35,7 @@ export default function AuthorsView() {
 
       <Suspense fallback={<h1>Загружаем подмаршрут...</h1>}>
         <Route path={`${path}/:authorId`}>
-          {authors && <AuthorSubView authors={authors} />}
+          <AuthorSubView />
         </Route>
       </Suspense>
     </>

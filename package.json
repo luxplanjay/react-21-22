@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.1",
     "modern-normalize": "^1.0.0",
+    "normalizr": "^3.6.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
