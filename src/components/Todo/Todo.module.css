@@ -1,0 +1,68 @@
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+
+  background-color: green;
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.completed {
+  composes: item;
+}
+
+.completed::before {
+  transform: scaleX(1);
+}
+
+.text {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
+.completed .text {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  margin-left: auto;
+  border-radius: 4px;
+  padding: 12px 24px;
+  background-color: #3f51b5;
+  color: #fff;
+  font-weight: 500;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #303f9f;
+}
+
+.button:active {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}

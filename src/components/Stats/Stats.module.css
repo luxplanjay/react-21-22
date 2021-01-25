@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  text-align: center;
+}
+
+.item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.label {
+  font-size: 16px;
+}

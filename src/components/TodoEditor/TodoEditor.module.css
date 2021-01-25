@@ -1,0 +1,40 @@
+.editor {
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.textarea {
+  width: 100%;
+  height: calc(16px * 10);
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  font: inherit;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  resize: none;
+  margin-bottom: 12px;
+}
+
+.button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  margin-left: auto;
+  border-radius: 4px;
+  padding: 12px 24px;
+  background-color: #3f51b5;
+  color: #fff;
+  font-weight: 500;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #303f9f;
+}
+
+.button:active {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
