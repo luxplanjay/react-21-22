@@ -1,16 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { useEffect, Suspense, lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Switch } from 'react-router-dom';
 import AppBar from './components/AppBar';
-import TodosView from './views/TodosView';
-import HomeView from './views/HomeView';
-import RegisterView from './views/RegisterView';
-import LoginView from './views/LoginView';
 import Container from './components/Container';
-import { authOperations } from './redux/auth';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+import { authOperations, authSelectors } from './redux/auth';
+
+const HomeView = lazy(() => import('./views/HomeView'));
+const RegisterView = lazy(() => import('./views/RegisterView'));
+const LoginView = lazy(() => import('./views/LoginView'));
+const TodosView = lazy(() => import('./views/TodosView'));
+const UploadView = lazy(() => import('./views/UploadView'));
 
 export default function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -18,14 +23,32 @@ export default function App() {
 
   return (
     <Container>
-      <AppBar />
-
-      <Switch>
-        <Route exact path="/" component={HomeView} />
-        <Route path="/register" component={RegisterView} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/todos" component={TodosView} />
-      </Switch>
+      {isFetchingCurrentUser ? (
+        <h1>Показываем React Skeleton</h1>
+      ) : (
+        <>
+          <AppBar />
+          <Switch>
+            <Suspense fallback={<p>Загружаем...</p>}>
+              <PublicRoute exact path="/">
+                <HomeView />
+              </PublicRoute>
+              <PublicRoute exact path="/register" restricted>
+                <RegisterView />
+              </PublicRoute>
+              <PublicRoute exact path="/login" redirectTo="/todos" restricted>
+                <LoginView />
+              </PublicRoute>
+              <PrivateRoute path="/todos" redirectTo="/login">
+                <TodosView />
+              </PrivateRoute>
+              <PrivateRoute path="/upload" redirectTo="/login">
+                <UploadView />
+              </PrivateRoute>
+            </Suspense>
+          </Switch>
+        </>
+      )}
     </Container>
   );
 }
