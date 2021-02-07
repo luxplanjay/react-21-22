@@ -1,0 +1,28 @@
+.item {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  font-family: Montserrat, sans-serif;
+  text-decoration: none;
+  color: #212121;
+}
+
+.active {
+  color: tomato;
+}
+
+.item.active svg {
+  color: tomato;
+}
+
+.item:hover,
+.item:focus {
+  background-color: lightgray;
+}
+
+.item:hover svg,
+.item:focus svg {
+  color: tomato;
+}
