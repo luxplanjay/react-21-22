@@ -7,15 +7,28 @@ export default function Clock() {
 
   useEffect(() => {
     intervalId.current = setInterval(() => {
-      console.log('Это интервал каждые 2000ms ' + Date.now());
+      console.log('Это интервал каждые 1000ms ' + Date.now());
       setTime(new Date());
-    }, 2000);
+    }, 1000)
 
     return () => {
-      console.log('Это функция очистки перед следующим вызовом useEffect');
       stop();
     };
   }, []);
+  // const [time, setTime] = useState(() => new Date());
+  // const intervalId = useRef(null);
+
+  // useEffect(() => {
+  //   intervalId.current = setInterval(() => {
+  //     console.log('Это интервал каждые 1000ms ' + Date.now());
+  //     setTime(new Date());
+  //   }, 1000);
+
+  //   return () => {
+  //     console.log('Это функция очистки перед следующим вызовом useEffect');
+  //     stop();
+  //   };
+  // }, []);
 
   const stop = () => {
     clearInterval(intervalId.current);

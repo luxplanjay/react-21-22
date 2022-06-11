@@ -6,17 +6,33 @@ export default function Counter() {
   const [counterB, setCounterB] = useState(0);
 
   const handleCounterAIncrement = () => {
-    setCounterA(state => state + 1);
-  };
+    setCounterA(prevState => prevState + 1);
+  }
 
   const handleCounterBIncrement = () => {
-    setCounterB(state => state + 1);
-  };
+    setCounterB(prevState => prevState + 1);
+  }
 
   useEffect(() => {
     const totalClicks = counterA + counterB;
     document.title = `Всего кликнули ${totalClicks} раз`;
-  }, [counterA, counterB]);
+  }, [counterA, counterB])
+
+  // const [counterA, setCounterA] = useState(0);
+  // const [counterB, setCounterB] = useState(0);
+
+  // const handleCounterAIncrement = () => {
+  //   setCounterA(state => state + 1);
+  // };
+
+  // const handleCounterBIncrement = () => {
+  //   setCounterB(state => state + 1);
+  // };
+
+  // useEffect(() => {
+  //   const totalClicks = counterA + counterB;
+  //   document.title = `Всего кликнули ${totalClicks} раз`;
+  // }, [counterA, counterB]);
 
   return (
     <>
