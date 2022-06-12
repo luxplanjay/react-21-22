@@ -6,7 +6,7 @@ const styles = { form: { marginBottom: 20 } };
 
 export default function PokemonForm({ onSubmit }) {
   const [pokemonName, setPokemonName] = useState('');
-
+  // const [pokemonName, setPokemonName] = useState('');
   const handleNameChange = event => {
     setPokemonName(event.target.value.toLowerCase());
   };
@@ -14,14 +14,30 @@ export default function PokemonForm({ onSubmit }) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (pokemonName.trim() === '') {
+    if (pokemonName.trim('') === '') {
       toast.error('Введите имя покемона.');
       return;
     }
 
     onSubmit(pokemonName);
     setPokemonName('');
-  };
+  }
+
+  // const handleNameChange = event => {
+  //   setPokemonName(event.target.value.toLowerCase());
+  // };
+
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+
+  //   if (pokemonName.trim() === '') {
+  //     toast.error('Введите имя покемона.');
+  //     return;
+  //   }
+
+  //   onSubmit(pokemonName);
+  //   setPokemonName('');
+  // };
 
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
