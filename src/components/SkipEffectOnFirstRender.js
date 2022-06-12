@@ -13,12 +13,18 @@ const styles = {
 export default function SkipEffectOnFirstRender() {
   const [count, setCount] = useState(0);
   const isFirstRender = useRef(true);
+  // const isFirstRender = useRef(true);
 
   useEffect(() => {
+    console.log(isFirstRender);
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
+    // if (isFirstRender.current) {
+    //   isFirstRender.current = false;
+    //   return;
+    // }
 
     console.log(`Выполняется useEffect - ${Date.now()}`);
   });
